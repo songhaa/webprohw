@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="styles.css" rel="stylesheet" />
+    <title>코로나19 홈페이지</title>
+    <style>
+      body {
+        background: rgb(231, 237, 243);
+        height: 100%;
+      }
+      div > a:hover {
+        color: rgb(252, 95, 142);
+      }
+      #rimage {
+        position: absolute;
+        margin-left: 15%;
+      }
+      #stext {
+        position: relative;
+        top: -560px;
+        left: 400px;
+      }
+      #ytext {
+        position: relative;
+        top: -520px;
+        left: 420px;
+      }
+      #btext {
+        position: relative;
+        top: -300px;
+        right: -500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: right; margin-top: 10px">
+      <a href="index.html" class="menu_home">🏠 홈으로</a>
+    </div>
+    <h2 class="title">After Corona ✈️</h2>
+    <div class="menu">
+      <a href="covid19&cheer.html" class="menu_text">코로나19 & 응원하기</a>
+      <a href="currentsituation.html" class="menu_text">현황</a>
+      <a href="vaccination..html" class="menu_text">백신접종</a>
+      <a href="screeningcenter.html" class="menu_text">선별진료소</a>
+      <a href="HUFSCorona.html" class="menu_text">HUFS Corona</a>
+      <a href="AfterCorona.html" class="menu_text_now">After Corona</a>
+    </div>
+    <div style="font-size: 35px" class="emphasis">
+      <p><b>지역을 클릭하면 상세 페이지로 넘어갑니다.</b></p>
+    </div>
+    <div id="rimage">
+      <img src="./img/kmap.png" class="image" />
+      <a href="seouleat.html" id="stext" style="font-size: 35px">서울</a>
+      <a href="yongineat.html" id="ytext" style="font-size: 35px">용인</a>
+      <a href="busaneat.html" id="btext" style="font-size: 35px">부산</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="styles.css" rel="stylesheet" />
+    <title>코로나19 홈페이지</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        background: rgb(231, 237, 243);
+      }
+      .section {
+        width: 50%;
+        height: 100%;
+        float: left;
+      }
+      div > a:hover {
+        color: rgb(252, 95, 142);
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var corona_data = google.visualization.arrayToDataTable([
+          ["국내 발생 현황", "일일"],
+          ["확진", 5123],
+          ["사망", 34],
+          ["재원 위중증", 723],
+          ["신규 입원", 626],
+        ]);
+        var in_data = google.visualization.arrayToDataTable([
+          ["날짜", "확진자 수"],
+          ["2020.1", 11],
+          ["2020.2", 2931],
+          ["2020.3", 9786],
+          ["2020.4", 10765],
+          ["2020.5", 11468],
+          ["2020.6", 12799],
+          ["2020.7", 14305],
+          ["2020.8", 19946],
+          ["2020.9", 23811],
+          ["2020.10", 26384],
+          ["2020.11", 34199],
+          ["2020.12", 60726],
+          ["2021.1", 77843],
+          ["2021.2", 89644],
+          ["2021.3", 103079],
+          ["2021.4", 122006],
+          ["2021.5", 140337],
+          ["2021.6", 156960],
+          ["2021.7", 198334],
+          ["2021.8", 251411],
+          ["2021.9", 311271],
+          ["2021.10", 364692],
+          ["2021.11", 447227],
+        ]);
+        var out_data = google.visualization.arrayToDataTable([
+          ["날짜", "확진자 수"],
+          ["2020.1", 8235],
+          ["2020.2", 86022],
+          ["2020.3", 876098],
+          ["2020.4", 3281736],
+          ["2020.5", 6801733],
+          ["2020.6", 10281760],
+          ["2020.7", 17312842],
+          ["2020.8", 25507644],
+          ["2020.9", 34012348],
+          ["2020.10", 46149652],
+          ["2020.11", 63443452],
+          ["2020.12", 83730214],
+          ["2021.1", 103284194],
+          ["2021.2", 114222207],
+          ["2021.3", 129317088],
+          ["2021.4", 151850501],
+          ["2021.5", 171191493],
+          ["2021.6", 182668988],
+          ["2021.7", 198347236],
+          ["2021.8", 218253273],
+          ["2021.9", 234209180],
+          ["2021.10", 247164753],
+          ["2021.11", 262806448],
+        ]);
+        var corona_options = {
+          title: "국내 발생 현황",
+        };
+        var in_options = {
+          title: "국내 누적 확진자 수",
+          legend: { position: "bottom" },
+        };
+        var out_options = {
+          title: "세계 누적 확진자 수",
+          legend: { position: "bottom" },
+        };
+        var corona_chart = new google.visualization.PieChart(
+          document.getElementById("piechart")
+        );
+        corona_chart.draw(corona_data, corona_options);
+        var in_chart = new google.visualization.AreaChart(
+          document.getElementById("in_chart")
+        );
+        in_chart.draw(in_data, in_options);
+        var out_chart = new google.visualization.AreaChart(
+          document.getElementById("out_chart")
+        );
+        out_chart.draw(out_data, out_options);
+      }
+    </script>
+  </head>
+  <body>
+    <div style="text-align: right; margin-top: 10px">
+      <a href="index.html" class="menu_home">🏠 홈으로</a>
+    </div>
+    <h2 class="title">현황 📈</h2>
+    <div class="menu">
+      <a href="covid19&cheer.html" class="menu_text">코로나19 & 응원하기</a>
+      <a href="currentsituation.html" class="menu_text_now">현황</a>
+      <a href="vaccination..html" class="menu_text">백신접종</a>
+      <a href="screeningcenter.html" class="menu_text">선별진료소</a>
+      <a href="HUFSCorona.html" class="menu_text">HUFS Corona</a>
+      <a href="AfterCorona.html" class="menu_text">After Corona</a>
+    </div>
+    <section class="section">
+      <div style="font-size: 35px" class="emphasis">
+        <p><b>오늘의 국내 코로나19 확진자 수</b></p>
+        <h4 style="font-size: 20px; text-align: center">
+          <mark>2021년 12월 01일 00시 기준</mark>
+        </h4>
+        <div
+          id="piechart"
+          style="width: 500px; height: 400px; display: inline-block"
+        ></div>
+      </div>
+    </section>
+    <section class="section">
+      <div style="font-size: 35px" class="emphasis">
+        <p><b>코로나 발생 이후 누적 확진자 수</b></p>
+        <p style="font-size: 20px; text-align: center">
+          <b style="background-color: green; color: white">1. 국내</b>
+        </p>
+        <div
+          id="in_chart"
+          style="
+            width: 500px;
+            height: 400px;
+            display: inline-block;
+            margin-bottom: 50px;
+          "
+        ></div>
+        <p style="font-size: 20px; text-align: center">
+          <b style="background-color: green; color: white">2. 세계</b>
+        </p>
+        <div
+          id="out_chart"
+          style="width: 500px; height: 400px; display: inline-block"
+        ></div>
+      </div>
+    </section>
+  </body>
+</html>
